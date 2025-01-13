@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catch the Button</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f7d9ff;
+    }
+    #game-area {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+    }
+    button {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: none;
+      border-radius: 50%;
+      background-color: #ff5722;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    }
+    #score {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
+    }
+    #timer {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 24px;
+      color: #333;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-area">
+    <div id="score">Score: 0</div>
+    <div id="timer">Time: 15</div>
+    <button id="moving-button">Catch!</button>
+  </div>
+
+  <script>
+    const button = document.getElementById('moving-button');
+    const scoreDisplay = document.getElementById('score');
+    const timerDisplay = document.getElementById('timer');
+    const gameArea = document.getElementById('game-area');
+
+    let score = 0;
+    let timeLeft = 15;
+    let gameActive = true;
+
+    // Move the button to a random position
+    const moveButton = () => {
+      const areaWidth = gameArea.clientWidth;
+      const areaHeight = gameArea.clientHeight;
+      const buttonSize = button.offsetWidth;
+
+      const randomX = Math.random() * (areaWidth - buttonSize);
+      const randomY = Math.random() * (areaHeight - buttonSize);
+
+      button.style.left = `${randomX}px`;
+      button.style.top = `${randomY}px`;
+    };
+
+    // Start game timer
+    const startTimer = () => {
+      const timer = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = `Time: ${timeLeft}`;
+        if (timeLeft <= 0) {
+          clearInterval(timer);
+          gameActive = false;
+          button.style.display = 'none';
+          alert(`Time's up! Your final score is ${score}.`);
+        }
+      }, 1000);
+    };
+
+    // Button click handler
+    button.addEventListener('click', () => {
+      if (gameActive) {
+        score++;
+        scoreDisplay.textContent = `Score: ${score}`;
+        moveButton();
+      }
+    });
+
+    // Initialize game
+    moveButton();
+    startTimer();
+  </script>
+</body>
+</html>
