@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة الذاكرة</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .game-board {
+            display: grid;
+            grid-template-columns: repeat(4, 100px);
+            grid-gap: 10px;
+        }
+
+        .card {
+            width: 100px;
+            height: 100px;
+            background-color: #333;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            border-radius: 8px;
+            transform: scale(1);
+            transition: transform 0.2s ease;
+        }
+
+        .card.flipped {
+            background-color: #fff;
+            color: #333;
+            pointer-events: none;
+        }
+
+        .card.matched {
+            background-color: #4CAF50;
+            color: #fff;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-board" id="gameBoard"></div>
+
+    <script>
+        const gameBoard = document.getElementById('gameBoard');
+        const icons = ['🍎', '🍌', '🍇', '🍓', '🍎', '🍌', '🍇', '🍓', '🍋', '🍍', '🍋', '🍍', '🥝', '🍉', '🥝', '🍉'];
+        let firstCard = null;
+        let secondCard = null;
+        let matches = 0;
+
+        // خلط الرموز
+        icons.sort(() => 0.5 - Math.random());
+
+        // إنشاء البطاقات
+        icons.forEach(icon => {
+            const card = document.createElement('div');
+            card.classList.add('card');
+            card.dataset.icon = icon;
+            card.addEventListener('click', flipCard);
+            gameBoard.appendChild(card);
+        });
+
+        function flipCard() {
+            if (this === firstCard || this.classList.contains('flipped')) return;
+
+            this.textContent = this.dataset.icon;
+            this.classList.add('flipped');
+
+            if (!firstCard) {
+                firstCard = this;
+            } else {
+                secondCard = this;
+                checkForMatch();
+            }
+        }
+
+        function checkForMatch() {
+            if (firstCard.dataset.icon === secondCard.dataset.icon) {
+                firstCard.classList.add('matched');
+                secondCard.classList.add('matched');
+                matches++;
+
+                if (matches === icons.length / 2) {
+                    setTimeout(() => alert('مبروك! لقد فزت!'), 500);
+                }
+
+                resetTurn();
+            } else {
+                setTimeout(() => {
+                    firstCard.textContent = '';
+                    secondCard.textContent = '';
+                    firstCard.classList.remove('flipped');
+                    secondCard.classList.remove('flipped');
+                    resetTurn();
+                }, 1000);
+            }
+        }
+
+        function resetTurn() {
+            firstCard = null;
+            secondCard = null;
+        }
+    </script>
+</body>
+</html>
