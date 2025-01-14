@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>اختبار المستر</title>
+</head>
+<body>
+    <h1 id="myText">السلام عليكم</h1>
+    <input type="text" id="textInput" placeholder="اتفضل يا مستر اكتب الجملة الجديدة هنا">
+    <button onclick="changeText()">غير الجملة يا مستر من هنا</button>
+
+    <script>
+        function changeText() {
+            var newText = document.getElementById("textInput").value;
+            document.getElementById("myText").innerText = newText;
+        }
+    </script>
+</body>
+</html>
