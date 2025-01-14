@@ -1,17 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="ar">
 <head>
-    <title>اختبار المستر</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>العاب سهلة مش مستهلة</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
+        .game { margin-bottom: 30px; }
+        .button { padding: 10px 20px; margin: 10px; cursor: pointer; font-size: 16px; }
+        .result { margin-top: 20px; font-size: 18px; }
+    </style>
 </head>
 <body>
-    <h1 id="myText">السلام عليكم</h1>
-    <input type="text" id="textInput" placeholder="اتفضل يا مستر اكتب الجملة الجديدة هنا">
-    <button onclick="changeText()">غير الجملة يا مستر من هنا</button>
+
+    <!--  اضغط على الزرار-->
+    <div class="game" id="clickButtonGame">
+        <h2> اضغط على الزرار</h2>
+        <p id="clickButtonTimer">الوقت: 10 ثواني</p>
+        <button class="button" onclick="startClickGame()">ابدأ</button>
+        <button class="button" disabled id="clickButton" onclick="incrementScore()">ادوس هنا!</button>
+        <div class="result" id="clickGameResult"></div>
+    </div>
+
+    <!-- لعبة تخمين الرقم -->
+    <div class="game" id="guessNumberGame">
+        <h2>لعبة تخمين الرقم</h2>
+        <p>اخمن رقماً بين 1 و 10:</p>
+        <input type="number" id="guessInput" min="1" max="10">
+        <button class="button" onclick="checkGuess()">شوف</button>
+        <div class="result" id="guessGameResult"></div>
+    </div>
+
+    <!-- لعبة تغيير الألوان -->
+    <div class="game" id="colorChangeGame">
+        <h2>لعبة تغيير الألوان</h2>
+        <button class="button" onclick="changeColor()">غير اللون</button>
+        <div class="result" id="colorGameResult"></div>
+    </div>
+
+    <!-- لعبة اختبار التفاعل -->
+    <div class="game" id="reactionTimerGame">
+        <h2>لعبة اختبار التفاعل</h2>
+        <button class="button" onclick="startReactionTimer()">ابدأ</button>
+        <div id="reactionTimer">استنى حتى تتحول الشاشة إلى الأخضر!</div>
+        <div class="result" id="reactionResult"></div>
+    </div>
+
+    <!-- لعبة العد البسيط -->
+    <div class="game" id="simpleCounterGame">
+        <h2>لعبة العد البسيط</h2>
+        <button class="button" onclick="increaseCounter()">زيادة</button>
+        <button class="button" onclick="decreaseCounter()">قليل</button>
+        <p id="counterDisplay">العد: 0</p>
+        <div class="result" id="counterResult"></div>
+    </div>
+
+    <!-- لعبة النقر على الأشكال -->
+    <div class="game" id="shapeClickerGame">
+        <h2>لعبة النقر على الأشكال</h2>
+        <button class="button" onclick="createShape()">إنشاء الشكل</button>
+        <canvas id="shapeCanvas" width="400" height="400"></canvas>
+        <div class="result" id="shapeGameResult"></div>
+    </div>
+
+    <!-- لعبة المؤقت -->
+    <div class="game" id="timerGame">
+        <h2>لعبة المؤقت</h2>
+        <button class="button" onclick="startTimer()">ابدأ المؤقت</button>
+        <div class="result" id="timerResult"></div>
+    </div>
+
+    <!-- لعبة رمي الفلوس -->
+    <div class="game" id="coinTossGame">
+        <h2>لعبة رمي الفلوس</h2>
+        <button class="button" onclick="tossCoin()">رمي الفلوس</button>
+        <div class="result" id="coinResult"></div>
+    </div>
 
     <script>
-        function changeText() {
-            var newText = document.getElementById("textInput").value;
-            document.getElementById("myText").innerText = newText;
+        // لعبة الضغط على الزرار
+        let clickButtonScore = 0;
+        let startTime;
+        function startClickGame() {
+            document.getElementById("clickButtonTimer").innerText = "الوقت: 10 ثواني";
+            document.getElementById("clickButton").disabled = false;
+            document.getElementById("clickGameResult").innerText = "";
+            startTime = new Date().getTime();
+            setTimeout(endClickGame, 10000);
+        }
+        function incrementScore() {
+            clickButtonScore++;
+            document.getElementById("clickGameResult").innerText = "الناتج: " + clickButtonScore;
+        }
+        function endClickGame() {
+            document.getElementById("clickButton").disabled = true;
+            document.getElementById("clickGameResult").innerText = "انتهى الوقت! النتيجة: " + clickButtonScore;
+        }
+
+        // لعبة تخمين الرقم
+        function checkGuess() {
+            const userGuess = parseInt(document.getElementById("guessInput").value);
+            const randomNumber = Math.floor(Math.random() * 10) + 1;
+            if (userGuess === randomNumber) {
+                document.getElementById("guessGameResult").innerText = "تهانينا! خمنت الرقم الصح.";
+            } else if (userGuess < randomNumber) {
+                document.getElementById("guessGameResult").innerText = "الرقم منخفض! جرب مرة أخرى.";
+            } else {
+                document.getElementById("guessGameResult").innerText = "الرقم مرتفع! جرب مرة أخرى.";
+            }
+        }
+
+        // لعبة تغيير الألوان
+        function changeColor() {
+            const colors = ["#FF5733", "#33FF57", "#3357FF", "#F333FF", "#33FFF5", "#F5FF33"];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.style.backgroundColor = randomColor;
+        }
+
+        // لعبة اختبار التفاعل
+        function startReactionTimer() {
+            document.getElementById("reactionTimer").innerText = "انتظر حتى يتحول الشاشة إلى الأخضر!";
+            setTimeout(() => {
+                document.getElementById("reactionTimer").innerText = "اضغط عندما يتحول الشاشة إلى الأخضر!";
+                document.body.style.backgroundColor = "green";
+                startTime = new Date().getTime();
+                document.body.addEventListener("click", stopReactionTimer);
+            }, Math.random() * 3000 + 1000);
+        }
+        function stopReactionTimer() {
+            document.body.removeEventListener("click", stopReactionTimer);
+            const reactionTime = (new Date().getTime() - startTime) / 1000;
+            document.getElementById("reactionResult").innerText = "وقت رد فعلك: " + reactionTime.toFixed(3) + " ثواني";
+            document.body.style.backgroundColor = "white";
+        }
+
+        // لعبة العد البسيط
+        let counter = 0;
+        function increaseCounter() {
+            counter++;
+            document.getElementById("counterDisplay").innerText = "العد: " + counter;
+        }
+        function decreaseCounter() {
+            counter--;
+            document.getElementById("counterDisplay").innerText = "العد: " + counter;
+        }
+
+        // لعبة النقر على الأشكال
+        let scoreShape = 0;
+        function createShape() {
+            const canvas = document.getElementById("shapeCanvas");
+            const ctx = canvas.getContext("2d");
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const shapes = ["circle", "rectangle"];
+            const shape = shapes[Math.floor(Math.random() * shapes.length)];
+            ctx.fillStyle = "#" + Math.floor(Math.random()*16777215).toString(16);
+            if (shape === "circle") {
+                ctx.beginPath();
+                ctx.arc(100, 100, 50, 0, Math.PI * 2);
+                ctx.fill();
+            } else {
+                ctx.fillRect(50, 50, 100, 100);
+            }
+            canvas.addEventListener("click", scoreShapeClick);
+        }
+        function scoreShapeClick(e) {
+            const canvas = document.getElementById("shapeCanvas");
+            const ctx = canvas.getContext("2d");
+            const rect = canvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            const imageData = ctx.getImageData(x, y, 1, 1).data;
+            if (imageData[3] > 0) {
+                scoreShape++;
+                document.getElementById("shapeGameResult").innerText = "النتيجة: " + scoreShape;
+                createShape();
+            }
+        }
+
+        // لعبة المؤقت
+        let startTimeTimer;
+        function startTimer() {
+            startTimeTimer = new Date().getTime();
+            setTimeout(endTimer, 5000);
+        }
+        function endTimer() {
+            const elapsedTime = (new Date().getTime() - startTimeTimer) / 1000;
+            document.getElementById("timerResult").innerText = "انتهى الوقت! لقد أوقفت عند: " + elapsedTime.toFixed(3) + " ثواني";
+        }
+
+        // لعبة رمي العملة
+        function tossCoin() {
+            const outcome = Math.random() < 0.5 ? "وجه" : "كتابة";
+            document.getElementById("coinResult").innerText = "النتيجة: " + outcome;
         }
     </script>
 </body>
