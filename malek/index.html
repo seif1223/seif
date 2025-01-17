@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تعلم لغة بايثون</title>
+    <style>
+        /* تصميم الخلفية المتحركة */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            color: #fff;
+            background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff6a00, #00c9ff);
+            background-size: 400% 400%;
+            animation: gradientBG 10s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* تصميم العنوان */
+        header {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 2px solid #00c9ff;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00c9ff;
+            margin: 0;
+        }
+
+        /* تصميم القسم الرئيسي */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        h2 {
+            color: #6a11cb;
+            text-align: center;
+        }
+
+        p, li {
+            line-height: 1.8;
+        }
+
+        /* تصميم الكود */
+        .code-box {
+            background: #222;
+            color: #0f0;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            margin: 20px 0;
+        }
+
+        /* تصميم الفوتر */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #00c9ff;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #00c9ff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>مرحبًا بك في تعلم لغة بايثون</h1>
+    </header>
+
+    <div class="container">
+        <h2>ما هي لغة بايثون؟</h2>
+        <p>
+            بايثون هي لغة برمجة متعددة الاستخدامات وسهلة التعلم تُستخدم في تطوير التطبيقات، تحليل البيانات، الذكاء الاصطناعي، وغير ذلك.
+        </p>
+
+        <h2>أساسيات بايثون</h2>
+        <ul>
+            <li>المتغيرات: لتخزين البيانات. مثال: <code>x = 10</code></li>
+            <li>الحلقات: لتكرار العمليات. مثال: <code>for i in range(5): print(i)</code></li>
+            <li>الشروط: لاتخاذ القرارات. مثال: <code>if x > 5: print("x أكبر من 5")</code></li>
+        </ul>
+
+        <h2>مثال عملي</h2>
+        <div class="code-box">
+            # برنامج بسيط لطباعة الأرقام<br>
+            for i in range(1, 6):<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(f"الرقم هو: {i}")
+        </div>
+
+        <h2>روابط مفيدة</h2>
+        <p>
+            <a href="https://www.w3schools.com/python/" target="_blank">تعلم بايثون على W3Schools</a><br>
+            <a href="https://docs.python.org/3/" target="_blank">التوثيق الرسمي للغة بايثون</a>
+        </p>
+    </div>
+
+    <footer>
+        <p>تم تطويره بواسطة: مالك وسيف | جميع الحقوق محفوظة &copy; 2025</p>
+    </footer>
+</body>
+</html>
