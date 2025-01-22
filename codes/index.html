@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WELCOME IN YOUR WORLD</title>
+  <style>
+    /* تنسيق الصفحة */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: #0f0;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin: 20px 0;
+      color: #0f0;
+      text-shadow: 0 0 15px #0f0, 0 0 30px #0f0;
+    }
+
+    .languages-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .language-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      box-shadow: 0 0 15px #0f0;
+      transition: transform 0.3s;
+    }
+
+    .language-card:hover {
+      transform: translateY(-5px);
+    }
+
+    button {
+      background-color: #0f0;
+      color: #000;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 5px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    button:hover {
+      background-color: #000;
+      color: #0f0;
+    }
+
+    .details {
+      display: none;
+      text-align: left;
+      margin-top: 15px;
+      padding: 10px;
+      background: rgba(15, 15, 15, 0.9);
+      border-radius: 5px;
+      color: #0f0;
+    }
+
+    .details h3 {
+      margin-bottom: 10px;
+    }
+
+    .details pre {
+      background: #111;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+
+    footer {
+      margin: 30px 0;
+      font-size: 2rem;
+      color: #0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>WELCOME IN YOUR WORLD</h1>
+
+  <div class="languages-container">
+    <!-- Python -->
+    <div class="language-card">
+      <h2>Python</h2>
+      <button onclick="toggleDetails('python-details')">Show Details</button>
+      <div id="python-details" class="details">
+        <h3>Python</h3>
+        <p>Python هي لغة برمجية متعددة الاستخدامات وسهلة التعلم. تُستخدم في تطوير الويب، تحليل البيانات، والذكاء الاصطناعي.</p>
+        <h4>مثال عملي:</h4>
+        <pre># طباعة نص
+print("مرحباً بالعالم!")
+
+# جمع رقمين
+def جمع(أ, ب):
+    return أ + ب
+
+print(جمع(3, 5))</pre>
+        <h4>شرح الكود:</h4>
+        <p>الكود الأول يطبع نصاً على الشاشة، والكود الثاني يعرض دالة لجمع رقمين وإرجاع الناتج.</p>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <div class="language-card">
+      <h2>JavaScript</h2>
+      <button onclick="toggleDetails('js-details')">Show Details</button>
+      <div id="js-details" class="details">
+        <h3>JavaScript</h3>
+        <p>JavaScript هي لغة رئيسية لتطوير واجهات الويب التفاعلية، وتُستخدم في المتصفحات.</p>
+        <h4>مثال عملي:</h4>
+        <pre>// طباعة نص
+alert("مرحباً بالعالم!");
+
+// جمع رقمين
+function جمع(أ, ب) {
+  return أ + ب;
+}
+
+console.log(جمع(3, 5));</pre>
+        <h4>شرح الكود:</h4>
+        <p>الكود الأول يعرض رسالة تنبيهية في المتصفح، والكود الثاني يعرض دالة لجمع رقمين.</p>
+      </div>
+    </div>
+
+    <!-- Java -->
+    <div class="language-card">
+      <h2>Java</h2>
+      <button onclick="toggleDetails('java-details')">Show Details</button>
+      <div id="java-details" class="details">
+        <h3>Java</h3>
+        <p>Java هي لغة قوية تُستخدم لتطوير التطبيقات الكبيرة والأنظمة المعقدة، بما في ذلك تطبيقات Android.</p>
+        <h4>مثال عملي:</h4>
+        <pre>// طباعة نص
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("مرحباً بالعالم!");
+    }
+}
+
+// جمع رقمين
+public int جمع(int أ, int ب) {
+    return أ + ب;
+}</pre>
+        <h4>شرح الكود:</h4>
+        <p>الكود الأول يطبع نصاً على الشاشة، والكود الثاني يعرض دالة لجمع رقمين.</p>
+      </div>
+    </div>
+
+    <!-- C++ -->
+    <div class="language-card">
+      <h2>C++</h2>
+      <button onclick="toggleDetails('cpp-details')">Show Details</button>
+      <div id="cpp-details" class="details">
+        <h3>C++</h3>
+        <p>C++ هي لغة عالية الأداء تُستخدم لتطوير الألعاب والأنظمة.</p>
+        <h4>مثال عملي:</h4>
+        <pre>#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    cout << "مرحباً بالعالم!" << endl;
+    return 0;
+}
+
+// جمع رقمين
+int جمع(int أ, int ب) {
+    return أ + ب;
+}</pre>
+        <h4>شرح الكود:</h4>
+        <p>الكود يطبع نصاً باستخدام مكتبة iostream ويعرض دالة لجمع رقمين.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &lt;/&gt;
+  </footer>
+
+  <script>
+    function toggleDetails(id) {
+      const details = document.getElementById(id);
+      details.style.display = details.style.display === "block" ? "none" : "block";
+    }
+  </script>
+</body>
+</html>
