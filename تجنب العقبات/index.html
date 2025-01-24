@@ -38,6 +38,9 @@
         let obstacles;
         let score = 0;
         let scoreText;
+        let gameOver = false;
+        let obstacleSpeed = 200;  // Starting speed for obstacles
+        let lastObstacleTime = 0;  // Time for obstacle spawning
 
         function preload() {
             this.load.image('sky', 'https://labs.phaser.io/assets/skies/sky1.png');
@@ -52,16 +55,7 @@
             player.setBounce(0.2);
             player.setCollideWorldBounds(true);
 
-            obstacles = this.physics.add.group({
-                key: 'obstacle',
-                repeat: 11,
-                setXY: { x: 12, y: 0, stepX: 70 }
-            });
-
-            obstacles.children.iterate(function (child) {
-                child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-                child.setVelocity(Phaser.Math.Between(-200, 200), 20);
-            });
+            obstacles = this.physics.add.group();
 
             this.physics.add.collider(player, obstacles, hitObstacle, null, this);
 
@@ -70,7 +64,10 @@
             scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#fff' });
         }
 
-        function update() {
+        function update(time) {
+            if (gameOver) return;  // Stop updates if the game is over
+
+            // Player movement
             if (cursors.left.isDown) {
                 player.setVelocityX(-160);
             } else if (cursors.right.isDown) {
@@ -83,14 +80,56 @@
                 player.setVelocityY(-330);
             }
 
+            // Increase score
             score += 1;
             scoreText.setText('Score: ' + score);
+
+            // Spawn new obstacles at regular intervals
+            if (time - lastObstacleTime > 2000) { // Every 2 seconds
+                spawnObstacle();
+                lastObstacleTime = time;
+            }
+
+            // Increase the speed of obstacles over time
+            if (score % 100 === 0 && obstacleSpeed < 400) {
+                obstacleSpeed += 10;  // Increase speed every 100 points
+            }
+
+            // Update obstacles movement
+            obstacles.children.iterate(function (obstacle) {
+                if (obstacle.y > game.config.height) {
+                    obstacle.setY(0);  // Reset to top when it goes off-screen
+                    obstacle.setX(Phaser.Math.Between(50, game.config.width - 50));
+                    obstacle.setVelocityY(obstacleSpeed);  // Adjust downward velocity based on difficulty
+                }
+            });
+        }
+
+        function spawnObstacle() {
+            let obstacle = obstacles.create(Phaser.Math.Between(50, game.config.width - 50), 0, 'obstacle');
+            obstacle.setVelocityY(obstacleSpeed);
+            obstacle.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8)); // Random bounce for a little variation
+            obstacle.setCollideWorldBounds(true);
         }
 
         function hitObstacle(player, obstacle) {
             this.physics.pause();
             player.setTint(0xff0000);
             scoreText.setText('Game Over! Final Score: ' + score);
+
+            gameOver = true;  // Set game over flag
+            this.input.keyboard.on('keydown-SPACE', restartGame, this);  // Listen for space to restart
+        }
+
+        function restartGame() {
+            gameOver = false;
+            score = 0;
+            obstacleSpeed = 200;  // Reset speed
+            scoreText.setText('Score: 0');
+            obstacles.clear(true, true);  // Clear obstacles
+            this.physics.resume();  // Resume physics
+            player.setTint(0xffffff);  // Remove red tint
+            player.setPosition(100, 450);
         }
     </script>
 </body>
