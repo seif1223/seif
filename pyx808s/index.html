@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages - Hacker Style</title>
+    <style>
+        body {
+            background-color: black;
+            color: #00ff00;
+            font-family: "Courier New", Courier, monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            border-bottom: 2px solid #00ff00;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+        }
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #00ff00;
+            text-decoration: underline;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li::before {
+            content: "> ";
+            color: #00ff00;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #00ff00;
+            margin-top: 20px;
+        }
+        .glitch {
+            color: #00ff00;
+            text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.75);
+            animation: glitch 1.5s infinite;
+        }
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.75); }
+            25% { text-shadow: -2px -2px 8px rgba(0, 255, 0, 0.5); }
+            50% { text-shadow: 2px -2px 6px rgba(0, 255, 0, 0.6); }
+            75% { text-shadow: -2px 2px 8px rgba(0, 255, 0, 0.8); }
+            100% { text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.75); }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="glitch">Programming Languages</h1>
+    </header>
+    <main>
+        <section>
+            <h2>What Are Programming Languages?</h2>
+            <p>Programming languages are the tools we use to speak to computers. Think of them as the code that powers the matrix. Each one has its own purpose, syntax, and rules.</p>
+        </section>
+        <section>
+            <h2>Types of Programming Languages</h2>
+            <ul>
+                <li><strong>High-Level:</strong> Easy to read, closer to human language. Examples: Python, Java.</li>
+                <li><strong>Low-Level:</strong> Closer to machine code, harder to understand but powerful. Examples: Assembly, C.</li>
+                <li><strong>Domain-Specific:</strong> Tailored for specific tasks. Examples: SQL for databases, HTML for websites.</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Popular Programming Languages</h2>
+            <h3>Python</h3>
+            <p>Python is the "hacker's favorite." It's simple, versatile, and perfect for AI, automation, and cracking the code.</p>
+            <h3>JavaScript</h3>
+            <p>JavaScript powers the web. Want to manipulate websites? This is your go-to.</p>
+            <h3>Java</h3>
+            <p>Java runs on billions of devices. Think big, like enterprise servers and Android apps.</p>
+        </section>
+        <section>
+            <h2>Why Learn Programming?</h2>
+            <p>Mastering programming languages lets you control the digital world. Build apps, analyze data, and hack systems (ethically, of course).</p>
+        
+    </main>
+    <footer>
+    </footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Code Editor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        #editor-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+        textarea {
+            width: 90%;
+            height: 200px;
+            margin-bottom: 10px;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        button {
+            background-color: #28a745;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        iframe {
+            width: 90%;
+            height: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HTML Code Editor</h1>
+    </header>
+    <div id="editor-container">
+        <textarea id="html-code" placeholder="Write your HTML code here..."></textarea>
+        <button onclick="runCode()">Run Code</button>
+        <iframe id="output"></iframe>
+    </div>
+    <script>
+        function runCode() {
+            const code = document.getElementById('html-code').value;
+            const iframe = document.getElementById('output');
+            iframe.srcdoc = code;
+        }
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Overview</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: white;
+            text-align: center;
+            background: linear-gradient(45deg, #ff7eb3, #ff758f, #7c83fd, #96e6a1);
+            background-size: 400% 400%;
+            animation: backgroundAnimation 15s ease infinite;
+        }
+
+        @keyframes backgroundAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgba(0, 0, 0, 0.5);
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #ffeb3b;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Languages Overview</h1>
+        <p>A guide to understanding programming languages and their functions</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Python</h2>
+            <p><strong>Function:</strong> Python is a versatile, high-level programming language used in web development, data analysis, machine learning, artificial intelligence, and automation.</p>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <p><strong>Function:</strong> JavaScript is primarily used for creating interactive and dynamic web pages, such as animations, real-time updates, and user interactions.</p>
+        </section>
+
+        <section>
+            <h2>Java</h2>
+            <p><strong>Function:</strong> Java is a powerful, platform-independent language used in enterprise applications, Android app development, and backend systems.</p>
+        </section>
+
+        <section>
+            <h2>C++</h2>
+            <p><strong>Function:</strong> C++ is commonly used for developing operating systems, games, embedded systems, and performance-critical applications.</p>
+        </section>
+
+        <section>
+            <h2>HTML & CSS</h2>
+            <p><strong>Function:</strong> HTML structures web content, while CSS styles and designs the appearance of web pages, including layouts, colors, and fonts.</p>
+        </section>
+
+        <section>
+            <h2>Ruby</h2>
+            <p><strong>Function:</strong> Ruby is popular for web development, particularly with the Ruby on Rails framework, which simplifies creating web applications.</p>
+        </section>
+
+        <section>
+            <h2>PHP</h2>
+            <p><strong>Function:</strong> PHP is a server-side scripting language used to build dynamic, database-driven websites and applications.</p>
+        </section>
+    </main>
+
+    <footer>
+     
+    </footer>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Examples</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            text-align: center;
+            background: linear-gradient(45deg, #6a1b9a, #ff4081);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        header {
+            padding: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: white;
+            border-radius: 10px;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 800px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        h2 {
+            color: #6a1b9a;
+        }
+
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 5px solid #6a1b9a;
+            overflow-x: auto;
+            display: none;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #6a1b9a;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #8e44ad;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Languages Examples</h1>
+        <p>Explore code examples for popular programming languages</p>
+    </header>
+
+    <main>
+        <!-- Python Section -->
+        <section>
+            <h2>Python</h2>
+            <p>Python is a versatile, high-level programming language used for web development, AI, and more.</p>
+            <button onclick="toggleExample('python')">Show Example</button>
+            <pre id="python">
+# Python Example
+def greet(name):
+    return f"Hello, {name}!"
+
+print(greet("World"))
+            </pre>
+        </section>
+
+        <!-- JavaScript Section -->
+        <section>
+            <h2>JavaScript</h2>
+            <p>JavaScript is used to create interactive and dynamic web pages.</p>
+            <button onclick="toggleExample('javascript')">Show Example</button>
+            <pre id="javascript">
+// JavaScript Example
+function greet(name) {
+    return Hello, ${name}!;
+}
+
+console.log(greet("World"));
+            </pre>
+        </section>
+
+        <!-- Java Section -->
+        <section>
+            <h2>Java</h2>
+            <p>Java is a powerful, platform-independent language used for enterprise applications and Android development.</p>
+            <button onclick="toggleExample('java')">Show Example</button>
+            <pre id="java">
+// Java Example
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!");
+    }
+}
+            </pre>
+        </section>
+
+        <!-- C++ Section -->
+        <section>
+            <h2>C++</h2>
+            <p>C++ is commonly used for system-level programming and game development.</p>
+            <button onclick="toggleExample('cpp')">Show Example</button>
+            <pre id="cpp">
+// C++ Example
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello, World!" << endl;
+    return 0;
+}
+            </pre>
+        </section>
+
+        <!-- Ruby Section -->
+        <section>
+            <h2>Ruby</h2>
+            <p>Ruby is known for its simplicity and is widely used in web development.</p>
+            <button onclick="toggleExample('ruby')">Show Example</button>
+            <pre id="ruby">
+# Ruby Example
+def greet(name)
+    "Hello, #{name}!"
+end
+
+puts greet("World")
+            </pre>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script>
+        function toggleExample(languageId) {
+            const example = document.getElementById(languageId);
+            if (example.style.display === "block") {
+                example.style.display = "none";
+            } else {
+                example.style.display = "block";
+            }
+        }
+    </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Programming Language</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: black;
+        }
+
+        @keyframes gradientAnimation {
+            }
+          
+            ; }
+        }
+
+       
+           
+        
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        
+        
+        selec
+            ;
+        }
+
+        
+           ;
+        }
+
+        ;
+        }
+
+     
+ 
+    
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Choose the Right Programming Language</h1>
+        <p>Select your project type, and we'll suggest the best programming language!</p>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>What type of project are you working on?</h2>
+            <select id="projectType">
+                <option value="" disabled selected>Select your project type</option>
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile App Development</option>
+                <option value="data">Data Science / AI</option>
+                <option value="game">Game Development</option>
+                <option value="embedded">Embedded Systems</option>
+                <option value="enterprise">Enterprise Applications</option>
+            </select>
+            <br>
+            <button onclick="suggestLanguage()">Suggest Language</button>
+        </div>
+
+        <div class="result" id="result">
+            <h2>Recommended Programming Language</h2>
+            <p id="suggestedLanguage"></p>
+        </div>
+    </main>
+    <footer>
+    </footer>
+
+    <script>
+        function suggestLanguage() {
+            const projectType = document.getElementById("projectType").value;
+            const resultDiv = document.getElementById("result");
+            const languageParagraph = document.getElementById("suggestedLanguage");
+
+            let language;
+
+            switch (projectType) {
+                case "web":
+                    language = "JavaScript or Python (with frameworks like Django or Flask) are great for web development!";
+                    break;
+                case "mobile":
+                    language = "For mobile apps, consider Swift (iOS) or Kotlin (Android). Alternatively, use Flutter (Dart).";
+                    break;
+                case "data":
+                    language = "Python is the go-to language for data science and AI, along with R for statistical analysis.";
+                    break;
+                case "game":
+                    language = "C++ and C# are popular choices for game development, especially with engines like Unreal or Unity.";
+                    break;
+                case "embedded":
+                    language = "C or C++ are widely used for embedded systems and low-level programming.";
+                    break;
+                case "enterprise":
+                    language = "Java is an excellent choice for large-scale enterprise applications.";
+                    break;
+                default:
+                    language = "Please select a project type to get a recommendation.";
+            }
+
+            languageParagraph.textContent = language;
+            resultDiv.style.display = "block";
+        }
+    </script>
