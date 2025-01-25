@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Online Code Editor - Hacker Style</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace; /* خط موحد نمطي (مونوسبايس) */
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0a0a0a; /* خلفية داكنة */
+      color: #33FF00; /* نص أخضر لامع */
+    }
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #33FF00, 0 0 20px #33FF00, 0 0 30px #33FF00; /* تأثير توهج أخضر */
+    }
+    textarea {
+      width: 80%;
+      height: 250px;
+      margin: 20px 0;
+      font-size: 18px;
+      padding: 10px;
+      background-color: #121212; /* خلفية داكنة للنص */
+      border: 2px solid #33FF00; /* حواف خضراء لامعة */
+      border-radius: 5px;
+      color: #33FF00; /* نص أخضر لامع */
+      resize: both; /* يسمح بتغيير الحجم */
+      outline: none;
+    }
+    textarea:focus {
+      border-color: #00CC00; /* تأثير تركيز أخضر */
+    }
+    button {
+      padding: 12px 25px;
+      font-size: 18px;
+      color: #121212;
+      background-color: #33FF00;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px #33FF00;
+      transition: all 0.3s ease;
+    }
+    button:hover {
+      background-color: #00CC00;
+      box-shadow: 0 0 20px #00CC00; /* تأثير توهج عند التمرير */
+    }
+    iframe {
+      width: 80%;
+      height: 400px;
+      border: none;
+      margin-top: 20px;
+      border-radius: 5px;
+      background-color: #121212;
+      box-shadow: 0 0 10px #33FF00;
+    }
+  </style>
+</head>
+<body>
+  <h1>Hacker Online Code Editor</h1>
+  <textarea id="codeBox" placeholder="Write your HTML, CSS, or JavaScript code here..."></textarea>
+  <button onclick="runCode()">Run Code</button>
+  <iframe id="outputFrame"></iframe>
+
+  <script>
+    function runCode() {
+      const code = document.getElementById("codeBox").value;
+      const outputFrame = document.getElementById("outputFrame");
+      outputFrame.srcdoc = code;
+    }
+  </script>
+</body>
+</html>

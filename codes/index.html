@@ -1,198 +1,359 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming Languages Overview</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            color: #00FF00; /* Green text on black background */
+            text-align: center;
+            background-color: black;
+            background-image: url('https://www.transparenttextures.com/patterns/black-tile.png');
+            background-size: 30px 30px;
+        }
+
+        header {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid #00FF00;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #00FF00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            background-color: rgba(0, 0, 0, 0.7);
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 800px;
+            text-align: left;
+            border: 1px solid #00FF00;
+        }
+
+        h2 {
+            color: #00FF00;
+            font-size: 1.8em;
+            border-bottom: 1px solid #00FF00;
+        }
+
+        p {
+            line-height: 1.6;
+            font-size: 1.2em;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            border-top: 2px solid #00FF00;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00FF00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #00cc00;
+        }
+
+        select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            background-color: black;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Programming Languages Overview</h1>
+        <p>A guide to understanding programming languages and their functions</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Python</h2>
+            <p><strong>Function:</strong> Python is a versatile, high-level programming language used in web development, data analysis, machine learning, artificial intelligence, and automation.</p>
+        </section>
+
+        <section>
+            <h2>JavaScript</h2>
+            <p><strong>Function:</strong> JavaScript is primarily used for creating interactive and dynamic web pages, such as animations, real-time updates, and user interactions.</p>
+        </section>
+
+        <section>
+            <h2>Java</h2>
+            <p><strong>Function:</strong> Java is a powerful, platform-independent language used in enterprise applications, Android app development, and backend systems.</p>
+        </section>
+
+        <section>
+            <h2>C++</h2>
+            <p><strong>Function:</strong> C++ is commonly used for developing operating systems, games, embedded systems, and performance-critical applications.</p>
+        </section>
+
+        <section>
+            <h2>HTML & CSS</h2>
+            <p><strong>Function:</strong> HTML structures web content, while CSS styles and designs the appearance of web pages, including layouts, colors, and fonts.</p>
+        </section>
+
+        <section>
+            <h2>Ruby</h2>
+            <p><strong>Function:</strong> Ruby is popular for web development, particularly with the Ruby on Rails framework, which simplifies creating web applications.</p>
+        </section>
+
+        <section>
+            <h2>PHP</h2>
+            <p><strong>Function:</strong> PHP is a server-side scripting language used to build dynamic, database-driven websites and applications.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Programming Languages Overview | Designed by [malek and the maked the link seif]</p>
+    </footer>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Programming Language</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: black;
+            color: #00FF00;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #00FF00;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        select {
+            margin: 10px;
+            padding: 10px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            background-color: black;
+            color: #00FF00;
+            border: 2px solid #00FF00;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            background-color: #00FF00;
+            color: black;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        button:hover {
+            background-color: #00cc00;
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #00FF00;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Choose the Right Programming Language</h1>
+        <p>Select your project type, and we'll suggest the best programming language!</p>
+    </header>
+
+    <main>
+        <div class="form-container">
+            <h2>What type of project are you working on?</h2>
+            <select id="projectType">
+                <option value="" disabled selected>Select your project type</option>
+                <option value="web">Web Development</option>
+                <option value="mobile">Mobile App Development</option>
+                <option value="data">Data Science / AI</option>
+                <option value="game">Game Development</option>
+                <option value="embedded">Embedded Systems</option>
+                <option value="enterprise">Enterprise Applications</option>
+            </select>
+            <br>
+            <button onclick="suggestLanguage()">Suggest Language</button>
+        </div>
+
+        <div class="result" id="result">
+            <h2>Recommended Programming Language</h2>
+            <p id="suggestedLanguage"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Programming Language Selector | Designed by [Your Name]</p>
+    </footer>
+
+    <script>
+        function suggestLanguage() {
+            const projectType = document.getElementById("projectType").value;
+            const resultDiv = document.getElementById("result");
+            const languageParagraph = document.getElementById("suggestedLanguage");
+
+            let language;
+
+            switch (projectType) {
+                case "web":
+                    language = "JavaScript or Python (with frameworks like Django or Flask) are great for web development!";
+                    break;
+                case "mobile":
+                    language = "For mobile apps, consider Swift (iOS) or Kotlin (Android). Alternatively, use Flutter (Dart).";
+                    break;
+                case "data":
+                    language = "Python is the go-to language for data science and AI, along with R for statistical analysis.";
+                    break;
+                case "game":
+                    language = "C++ and C# are popular choices for game development, especially with engines like Unreal or Unity.";
+                    break;
+                case "embedded":
+                    language = "C or C++ are widely used for embedded systems and low-level programming.";
+                    break;
+                case "enterprise":
+                    language = "Java is an excellent choice for large-scale enterprise applications.";
+                    break;
+                default:
+                    language = "Please select a project type to get a recommendation.";
+            }
+
+            languageParagraph.textContent = language;
+            resultDiv.style.display = "block";
+        }
+    </script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WELCOME IN YOUR WORLD</title>
+  <title>Online Code Editor - Hacker Style</title>
   <style>
-    /* تنسيق الصفحة */
     body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #0f0;
+      font-family: 'Courier New', Courier, monospace; /* خط موحد نمطي (مونوسبايس) */
       margin: 0;
       padding: 0;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin: 20px 0;
-      color: #0f0;
-      text-shadow: 0 0 15px #0f0, 0 0 30px #0f0;
-    }
-
-    .languages-container {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      padding: 20px;
+      flex-direction: column;
+      align-items: center;
+      background-color: #0a0a0a; /* خلفية داكنة */
+      color: #33FF00; /* نص أخضر لامع */
     }
-
-    .language-card {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 20px;
-      border-radius: 10px;
-      width: 300px;
-      text-align: center;
-      box-shadow: 0 0 15px #0f0;
-      transition: transform 0.3s;
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5em;
+      text-shadow: 0 0 10px #33FF00, 0 0 20px #33FF00, 0 0 30px #33FF00; /* تأثير توهج أخضر */
     }
-
-    .language-card:hover {
-      transform: translateY(-5px);
+    textarea {
+      width: 80%;
+      height: 250px;
+      margin: 20px 0;
+      font-size: 18px;
+      padding: 10px;
+      background-color: #121212; /* خلفية داكنة للنص */
+      border: 2px solid #33FF00; /* حواف خضراء لامعة */
+      border-radius: 5px;
+      color: #33FF00; /* نص أخضر لامع */
+      resize: both; /* يسمح بتغيير الحجم */
+      outline: none;
     }
-
+    textarea:focus {
+      border-color: #00CC00; /* تأثير تركيز أخضر */
+    }
     button {
-      background-color: #0f0;
-      color: #000;
+      padding: 12px 25px;
+      font-size: 18px;
+      color: #121212;
+      background-color: #33FF00;
       border: none;
-      padding: 10px 15px;
-      font-size: 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      border-radius: 5px;
-      transition: background-color 0.3s, color 0.3s;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      box-shadow: 0 0 10px #33FF00;
+      transition: all 0.3s ease;
     }
-
     button:hover {
-      background-color: #000;
-      color: #0f0;
+      background-color: #00CC00;
+      box-shadow: 0 0 20px #00CC00; /* تأثير توهج عند التمرير */
     }
-
-    .details {
-      display: none;
-      text-align: left;
-      margin-top: 15px;
-      padding: 10px;
-      background: rgba(15, 15, 15, 0.9);
+    iframe {
+      width: 80%;
+      height: 400px;
+      border: none;
+      margin-top: 20px;
       border-radius: 5px;
-      color: #0f0;
-    }
-
-    .details h3 {
-      margin-bottom: 10px;
-    }
-
-    .details pre {
-      background: #111;
-      padding: 10px;
-      border-radius: 5px;
-      overflow-x: auto;
-    }
-
-    footer {
-      margin: 30px 0;
-      font-size: 2rem;
-      color: #0f0;
+      background-color: #121212;
+      box-shadow: 0 0 10px #33FF00;
     }
   </style>
 </head>
 <body>
-  <h1>WELCOME IN YOUR WORLD</h1>
-
-  <div class="languages-container">
-    <!-- Python -->
-    <div class="language-card">
-      <h2>Python</h2>
-      <button onclick="toggleDetails('python-details')">Show Details</button>
-      <div id="python-details" class="details">
-        <h3>Python</h3>
-        <p>Python هي لغة برمجية متعددة الاستخدامات وسهلة التعلم. تُستخدم في تطوير الويب، تحليل البيانات، والذكاء الاصطناعي.</p>
-        <h4>مثال عملي:</h4>
-        <pre># طباعة نص
-print("مرحباً بالعالم!")
-
-# جمع رقمين
-def جمع(أ, ب):
-    return أ + ب
-
-print(جمع(3, 5))</pre>
-        <h4>شرح الكود:</h4>
-        <p>الكود الأول يطبع نصاً على الشاشة، والكود الثاني يعرض دالة لجمع رقمين وإرجاع الناتج.</p>
-      </div>
-    </div>
-
-    <!-- JavaScript -->
-    <div class="language-card">
-      <h2>JavaScript</h2>
-      <button onclick="toggleDetails('js-details')">Show Details</button>
-      <div id="js-details" class="details">
-        <h3>JavaScript</h3>
-        <p>JavaScript هي لغة رئيسية لتطوير واجهات الويب التفاعلية، وتُستخدم في المتصفحات.</p>
-        <h4>مثال عملي:</h4>
-        <pre>// طباعة نص
-alert("مرحباً بالعالم!");
-
-// جمع رقمين
-function جمع(أ, ب) {
-  return أ + ب;
-}
-
-console.log(جمع(3, 5));</pre>
-        <h4>شرح الكود:</h4>
-        <p>الكود الأول يعرض رسالة تنبيهية في المتصفح، والكود الثاني يعرض دالة لجمع رقمين.</p>
-      </div>
-    </div>
-
-    <!-- Java -->
-    <div class="language-card">
-      <h2>Java</h2>
-      <button onclick="toggleDetails('java-details')">Show Details</button>
-      <div id="java-details" class="details">
-        <h3>Java</h3>
-        <p>Java هي لغة قوية تُستخدم لتطوير التطبيقات الكبيرة والأنظمة المعقدة، بما في ذلك تطبيقات Android.</p>
-        <h4>مثال عملي:</h4>
-        <pre>// طباعة نص
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("مرحباً بالعالم!");
-    }
-}
-
-// جمع رقمين
-public int جمع(int أ, int ب) {
-    return أ + ب;
-}</pre>
-        <h4>شرح الكود:</h4>
-        <p>الكود الأول يطبع نصاً على الشاشة، والكود الثاني يعرض دالة لجمع رقمين.</p>
-      </div>
-    </div>
-
-    <!-- C++ -->
-    <div class="language-card">
-      <h2>C++</h2>
-      <button onclick="toggleDetails('cpp-details')">Show Details</button>
-      <div id="cpp-details" class="details">
-        <h3>C++</h3>
-        <p>C++ هي لغة عالية الأداء تُستخدم لتطوير الألعاب والأنظمة.</p>
-        <h4>مثال عملي:</h4>
-        <pre>#include &lt;iostream&gt;
-using namespace std;
-
-int main() {
-    cout << "مرحباً بالعالم!" << endl;
-    return 0;
-}
-
-// جمع رقمين
-int جمع(int أ, int ب) {
-    return أ + ب;
-}</pre>
-        <h4>شرح الكود:</h4>
-        <p>الكود يطبع نصاً باستخدام مكتبة iostream ويعرض دالة لجمع رقمين.</p>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    &lt;/&gt;
-  </footer>
+  <h1>Hacker Online Code Editor</h1>
+  <textarea id="codeBox" placeholder="Write your HTML, CSS, or JavaScript code here..."></textarea>
+  <button onclick="runCode()">Run Code</button>
+  <iframe id="outputFrame"></iframe>
 
   <script>
-    function toggleDetails(id) {
-      const details = document.getElementById(id);
-      details.style.display = details.style.display === "block" ? "none" : "block";
+    function runCode() {
+      const code = document.getElementById("codeBox").value;
+      const outputFrame = document.getElementById("outputFrame");
+      outputFrame.srcdoc = code;
     }
   </script>
 </body>
