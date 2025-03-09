@@ -30,13 +30,11 @@
             height: auto;
         }
 
-        /* Game Styles */
         #game-container {
             margin-top: 20px;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
             border-radius: 10px;
-            display: inline-block;
         }
 
         #score {
@@ -52,11 +50,6 @@
             border: none;
             border-radius: 10px;
             cursor: pointer;
-            transition: 0.2s;
-        }
-
-        #click-button:hover {
-            transform: scale(1.1);
         }
     </style>
 </head>
@@ -66,12 +59,11 @@
     <h2>أود أن أشكر</h2>
     <p>المعلمين والمعلمات وأهلي، خاصة أمي وأبي، على المجهود والمساعدة، لأنهم يتمنون لي أفضل الأشياء.</p>
 
-    <!-- Simple Clicker Game -->
     <div id="game-container">
-        <h2>لعبة النقاط</h2>
-        <p>اضغط على الزر لجمع النقاط!</p>
+        <h2>لعبة سهلة</h2>
+        <p>اضغط على الزر لزيادة الرقم</p>
         <p>النقاط: <span id="score">0</span></p>
-        <button id="click-button" onclick="increaseScore()">اضغط هنا!</button>
+        <button id="click-button" onclick="increaseScore()">اضغط هنا</button>
     </div>
 
     <script>
